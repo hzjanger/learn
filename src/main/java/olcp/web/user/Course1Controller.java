@@ -28,9 +28,7 @@ public class Course1Controller {
     private coursehotService courseService3;
     @Autowired
     private courseclassificationService courseclassificationservice;
-
-
-
+    
     /**
      *　最新课程
      */
@@ -41,12 +39,12 @@ public class Course1Controller {
         return splitData(JSON.toJSONString(coursenew),"[","]");
     }
     /**
-     *　最新课程详细页面
+     *　课程详细页面
      */
-    @RequestMapping("/allnewcourses/detailed_page")
-    public coursenew getNewdetailedcourses(String coursetailnum) {
-        coursenew coursenewdetailed = courseService.findBycoursetailnum(coursetailnum);
-        return coursenewdetailed;
+    @RequestMapping("/detailed_page")
+    public coursehot getHotdetailedcourses(String coursetailnum) {
+        coursehot coursehotdetailed = courseService3.findBycoursetailnum(coursetailnum);
+        return coursehotdetailed;
     }
     /**
      *　最热课程
@@ -56,14 +54,6 @@ public class Course1Controller {
         Pageable pageable = new PageRequest(page, 24);
         Page<coursehot1> coursehot = courseService2.findAll(pageable);
         return splitData(JSON.toJSONString(coursehot),"[","]");
-    }
-    /**
-     *　最热课程详细页面
-     */
-    @RequestMapping("/allhotcourses/detailed_page")
-    public coursehot getHotdetailedcourses(String coursetailnum) {
-        coursehot coursehotdetailed = courseService3.findBycoursetailnum(coursetailnum);
-        return coursehotdetailed;
     }
     /**
      *　最新课程分类1
@@ -109,7 +99,7 @@ public class Course1Controller {
 
     public String splitData(String str, String strStart, String strEnd) {
         String tempStr;
-        tempStr = str.substring(str.indexOf(strStart)+1 , str.lastIndexOf(strEnd));
+        tempStr = str.substring(str.indexOf(strStart) , str.lastIndexOf(strEnd)+1);
         return tempStr;
     }
 }
