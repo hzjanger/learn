@@ -34,6 +34,7 @@ public class Course1Controller {
     
     /**
      *　最新课程
+     * 点击最新课程,显示最新课程
      */
     @RequestMapping("/allnewcourses")
     public String getNewcourses(@RequestParam(defaultValue = "0",required = true) Integer page) {
@@ -43,6 +44,7 @@ public class Course1Controller {
     }
     /**
      *　课程详细页面
+     * 点击课程,进入学习页面
      */
     @RequestMapping("/detailed_page")
     public coursehot getHotdetailedcourses(String coursetailnum) {
@@ -51,6 +53,7 @@ public class Course1Controller {
     }
     /**
      *　最热课程
+     * 点击最热课程,显示最热课程
      */
     @RequestMapping("/allhotcourses")
     public String getHotcourses(@RequestParam(defaultValue = "0",required = true) Integer page) {
@@ -60,6 +63,7 @@ public class Course1Controller {
     }
     /**
      *　最新课程分类1
+     * 参数3 direction 方向  difficulty  难度  page  页数(可传可不传)
      */
     @RequestMapping("/allnewcourses/sortbylast1")
     public Page<courseclassification> getNewClassificationCourses1(String direction,String difficulty,@RequestParam(defaultValue = "0",required = true) Integer page) {
@@ -70,6 +74,7 @@ public class Course1Controller {
 
     /**
      *　最新课程分类2
+     * 参数2  难度是全部  direction  方向  page 页数(可传可不传)
      */
     @RequestMapping("/allnewcourses/sortbylast")
     public Page<courseclassification> getNewClassificationCourses2(String direction,@RequestParam(defaultValue = "0",required = true) Integer page) {
@@ -80,6 +85,7 @@ public class Course1Controller {
 
     /**
      *　最热课程分类1
+     *  参数3 direction 方向  difficulty  难度  page  页数(可传可不传)
      */
     @RequestMapping("/allhotcourses/sortbypop1")
     public Page<courseclassification> getHotClassificationCourses1(String direction,String difficulty,@RequestParam(defaultValue = "0",required = true) Integer page) {
@@ -91,6 +97,7 @@ public class Course1Controller {
 
     /**
      *　最热课程分类2
+     *  参数2  难度是全部  direction  方向  page 页数(可传可不传)
      */
     @RequestMapping("/allhotcourses/sortbypop")
     public Page<courseclassification> getHotClassificationCourses2(String direction,@RequestParam(defaultValue = "0",required = true) Integer page) {
