@@ -109,7 +109,7 @@ public class Course1Controller {
 
     public String splitData(String str, String strStart, String strEnd) {
         String tempStr;
-        tempStr = str.substring(str.indexOf(strStart)+1 , str.lastIndexOf(strEnd));
+        tempStr = str.substring(str.indexOf(strStart) , str.lastIndexOf(strEnd)+1);
         return tempStr;
     }
 }
